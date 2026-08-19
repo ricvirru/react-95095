@@ -1,0 +1,50 @@
+/* ========== NAVBAR ========== */
+.app-navbar {
+    background-color: #2d3748;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 3px solid #667eea;
+}
+
+.app-navbar .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding: 0.8rem 0;
+    flex-wrap: wrap;
+}
+
+.app-navbar .nav-links li a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.2rem;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    font-size: 1rem;
+}
+
+.app-navbar .nav-links li a:hover {
+    color: #ffffff;
+    border-bottom-color: #667eea;
+}
+
+.app-navbar .nav-user {
+    color: #e2e8f0;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 0;
+}
+
+.app-navbar .nav-user span {
+    background-color: #667eea;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}

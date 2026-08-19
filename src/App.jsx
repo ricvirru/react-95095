@@ -1,22 +1,31 @@
-import "./App.css"
-import Boton from "./components/Boton/Boton"
+import Contador from "./components/Contador/Contador";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import "./App.css";
 
 const App = () => {
-
- let nombre= "Alesio"
+  const headerData = {
+    titulo: 'Mi comercio - 3 Estrellas',
+    subtitulo: 'Benvenidosssss'
+  };
 
   return (
-
     <div>
-      <h1>Hola Mundo!!</h1>
-      <h2 className="verde">Esta es la primera clase de React</h2>
-      <h3>Hola, soy el profe {nombre}</h3>
-      <p>tengo {30 + 4} años</p>
-      <Boton/>
-      <Boton></Boton>
+      <Header titulo={headerData.titulo} subtitulo={headerData.subtitulo}  />
+      <Navbar />      
+      <main className="app-main">
+        <h2 className="verde">Contenido principal de la pagina</h2>
+        <p>
+          Benvenidos a la pagina...
+        </p>
+        <p>
+          Los productos mas vendidos
+        </p>
+      </main>
+      <Contador />
+      <Footer />
     </div>
-    
-
   )
 }
 
