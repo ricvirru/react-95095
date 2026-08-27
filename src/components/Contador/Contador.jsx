@@ -1,52 +1,28 @@
-import { useState } from "react";
-import "./Contador.css";
+import { useState, useEffect } from "react"
 
 const Contador = () => {
-  const [cantidad, setCantidad] = useState(10);
+    const [contador, setContador] = useState(0)
 
-  const sumar = () => setCantidad(cantidad + 1);
-  const restar = () => setCantidad(cantidad - 1);
-  const reiniciar = () => setCantidad(1000);
+    const sumarContador = () => {
+        setContador(contador + 1)
+    }
+
+    const restarContador = () => {
+        setContador(contador - 1)
+    }
+
+    useEffect(()=>{
+        /* Aca dentro de la funcion colo lo que quiero que se ejecute como efecto secundario*/
+        document.title = `Contador: ${contador}`
+    },[contador])
 
   return (
-    <div className="contador-container">
-      <h2>Contador</h2>
-      
-      <div className="numero">
-        {cantidad}
-      </div>
-      
-      <div className="grupo-botones">
-        <button 
-          className="btn btn-restar" 
-          onClick={restar}
-        >
-          −
-        </button>
-        
-        <button 
-          className="btn btn-sumar" 
-          onClick={sumar}
-        >
-          +
-        </button>
-        
-        <button
-          className="btn btn-reiniciar"
-          onClick={reiniciar}
-        >
-          ↺
-        </button>
-        
-        <button 
-          className="btn btn-mas5" 
-          onClick={() => setCantidad(cantidad + 5)}
-        >
-          +5
-        </button>
-      </div>
+    <div>
+        <button onClick={sumarContador}> + </button>
+        <strong>{contador}</strong>
+        <button onClick={restarContador}> - </button>
     </div>
-    );
+  )
 }
 
-export default Contador;
+export default Contador
