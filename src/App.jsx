@@ -1,15 +1,26 @@
-import React from 'react'
-import AsyncAwait from './components/AsyncAwait/AsyncAwait'
-import JsonPlaceHolder from './components/JsonPlaceHolder/JsonPlaceHolder'
-import Nesflic from './components/Nesflic/Nesflic'
+
+import "./App.css"
+import "bootstrap"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemCount from "./componentes/ItemCount/ItemCount";
+import NavBar from "./componentes/NavBar/NavBar";
+import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailContainer";
+
 
 const App = () => {
+
+
   return (
-    <div>
-      {/* <AsyncAwait/> 
-      <JsonPlaceHolder/>*/}
-      <Nesflic/>
-    </div>
+
+    <>
+        <NavBar/>
+        <ItemListContainer/>
+        <ItemDetailContainer/>
+
+    </>
+    
+    
   )
 }
 
