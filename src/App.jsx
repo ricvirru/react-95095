@@ -1,8 +1,13 @@
-import Contador from "./components/Contador/Contador";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import Home from "./components/Home/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Contact from "./components/Contact/Contact";
+import NotFound from "./components/NotFound/NotFound";
 
 const App = () => {
   const headerData = {
@@ -12,19 +17,18 @@ const App = () => {
 
   return (
     <div>
-      <Header titulo={headerData.titulo} subtitulo={headerData.subtitulo}  />
-      <Navbar />      
-      <main className="app-main">
-        <h2 className="verde">Contenido principal de la pagina</h2>
-        <p>
-          Benvenidos a la pagina...
-        </p>
-        <p>
-          Los productos mas vendidos
-        </p>
-      </main>
-      <Contador />
-      <Footer />
+      <BrowserRouter>
+        <Header titulo={headerData.titulo} subtitulo={headerData.subtitulo}  />
+        <Navbar />
+          {/* <ItemDetailContainer /> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ItemListContainer />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path='*' element={ <NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   )
 }

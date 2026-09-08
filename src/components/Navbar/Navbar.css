@@ -48,3 +48,14 @@
     font-size: 0.85rem;
     font-weight: 600;
 }
+
+.app-navbar .app-navbar-widget {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* padding: 0.8rem 0; */
+    margin-left: auto;
+    /* Empuja el widget a la derecha */
+    flex-shrink: 0;
+    /* Evita que el widget se encoja */
+}
