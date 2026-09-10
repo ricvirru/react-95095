@@ -20,10 +20,10 @@ const App = () => {
       <BrowserRouter>
         <Header titulo={headerData.titulo} subtitulo={headerData.subtitulo}  />
         <Navbar />
-          {/* <ItemDetailContainer /> */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<ItemListContainer />} />
+          <Route path="/categories/:id" element={<ItemListContainer />} />
+          <Route path="/products/:id" element={<ItemDetailContainer />} />
           <Route path="/contact" element={<Contact />} />
           <Route path='*' element={ <NotFound />} />
         </Routes>

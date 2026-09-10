@@ -1,14 +1,16 @@
 // import React from 'react'
+import { Link } from "react-router-dom";
 import "./Item.css";
 
-const Item = ({ id, name, price, image }) => {
+const Item = ({ id, name, price, image, category }) => {
   return (
     <div className='cardProducto'>
         <img src={image} alt={name} />
         <h3>Nombre: {name}</h3>
-        <p>Precio: {price}</p>
+      <p>Precio: {price}</p>
+      <p>Categoria: {category.map(cat => cat.name).join(", ")}</p>
         <p>ID: {id}</p>
-        <button> Ver detalles</button>
+        <Link to={`/products/${id}`}><button>Ver detalle</button></Link>
 
     </div>
   )

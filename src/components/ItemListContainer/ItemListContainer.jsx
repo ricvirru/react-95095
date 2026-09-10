@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
-import { getProductos } from "../../asyncmock"
+import { getProducts } from "../../asyncmock"
 import ItemList from "../ItemList/ItemList"
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
 
-  const [productos, setProductos] = useState([])
+  const [productos, setProductos] = useState([]);
+  const { id : categoryId }  = useParams();
   const [filtroProducto, setFiltroProducto] = useState("");
   const handleOnChange = (e) => {
     setFiltroProducto(e.target.value);
@@ -15,11 +17,15 @@ const ItemListContainer = () => {
     console.log("Buscando producto: " + filtroProducto);
   }
 
-  useEffect(()=>{
-    getProductos()
-      .then(respuesta => setProductos(respuesta))
+  useEffect(() => {
+    getProducts(Number(categoryId))
+      .then(respuesta => {
+        setProductos(respuesta)
+        console.log('productos by category: ', respuesta);
+      })
       .catch(error => console.log(error))
-  },[])
+    
+  }, [categoryId]);
 
   return (
     <>

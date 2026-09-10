@@ -1,48 +1,42 @@
 import { useState } from "react";
 import "./Contador.css";
 
-const Contador = () => {
-  const [cantidad, setCantidad] = useState(10);
+const Contador = ({initialValue, stock, onAddToCart}) => {
+  const [count, setCount] = useState(initialValue);
 
-  const sumar = () => setCantidad(cantidad + 1);
-  const restar = () => setCantidad(cantidad - 1);
-  const reiniciar = () => setCantidad(1000);
+  const handleAdd = () => setCount(count + 1);
+  const handleSubtract = () => setCount(count - 1);
+
+  const handleOnAddCart = () => {
+    onAddToCart(count);
+  }
 
   return (
     <div className="contador-container">
-      <h2>Contador</h2>
+      {/* <h2>Contador</h2> */}
       
       <div className="numero">
-        {cantidad}
+        {count}
       </div>
       
       <div className="grupo-botones">
         <button 
           className="btn btn-restar" 
-          onClick={restar}
+          onClick={handleSubtract}
         >
           −
         </button>
         
         <button 
           className="btn btn-sumar" 
-          onClick={sumar}
+          onClick={handleAdd}
         >
           +
         </button>
-        
-        <button
-          className="btn btn-reiniciar"
-          onClick={reiniciar}
-        >
-          ↺
-        </button>
-        
-        <button 
-          className="btn btn-mas5" 
-          onClick={() => setCantidad(cantidad + 5)}
-        >
-          +5
+      </div>
+      <div>
+        <button className="btn btn-agregar" disabled={count === 0 || count > stock} onClick={handleOnAddCart}>
+          Agregar al carrito
         </button>
       </div>
     </div>

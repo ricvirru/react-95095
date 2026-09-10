@@ -9,10 +9,15 @@ const misProductos = [
     {id: 8, name:"Medias", description:"Medias cortas para running, tennis.", category: [{idCat: 1, name:'HOMBRES'}, {idCat:8, name:'TOPPER'}, {idCat:15, name:'INDUMENTARIA'}], stock:5, price:4000, image:'../../src/assets/products/medias.jpg'}
 ]
 
-export const getProductos = () =>{
+export const getProducts = (categoryId) =>{
   return new Promise((resolve)=>{
-    setTimeout(()=>{
-      resolve(misProductos)
+    setTimeout(() => {
+      if (!categoryId) {
+        resolve(misProductos);
+      } else {
+        const productosFiltrados = misProductos.filter(producto => producto.category.some(cat => cat.idCat === categoryId));
+        resolve(productosFiltrados);
+      }
     }, 2000)
   })
 }
@@ -20,7 +25,7 @@ export const getProductos = () =>{
 export const getUnProducto = (id) =>{
   return new Promise(resolve =>{
     setTimeout(()=>{
-      const producto = misProductos.find(item => item.id === id)
+      const producto = misProductos.find(item => item.id === Number(id));
       resolve(producto)
     }, 2000)
   })

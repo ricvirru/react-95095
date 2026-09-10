@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
 import './Navbar.css';
 
@@ -7,14 +7,11 @@ const Navbar = () => {
     <>
       <nav className="app-navbar">
         <ul className="nav-links">
-          <Link to="/"><li> Home</li></Link>
-          <Link to="/products"><li> Productos</li></Link>
-          <li><a href="#"> Home</a></li>
-          <li><a href="#"> Calzado</a></li>
-          <li><a href="#"> Ropa</a></li>
-          <li><a href="#"> Accesorios</a></li>
-          <li><a href="#"> Nosotros</a></li>
-          <Link to="/contact"><li>Contacto</li></Link>
+          <li><NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')} end> Inicio</NavLink></li>
+          <li><NavLink to="/categories/1" className={({ isActive }) => (isActive ? 'active' : '')}> Hombres</NavLink></li>
+          <li><NavLink to="/categories/2" className={({ isActive }) => (isActive ? 'active' : '')}> Mujeres</NavLink></li>
+          <li><NavLink to="/categories/3" className={({ isActive }) => (isActive ? 'active' : '')}> Niños</NavLink></li>
+          <li><NavLink to="/categories/4" className={({ isActive }) => (isActive ? 'active' : '')}> Outlet</NavLink></li>
         </ul>
         <div className="app-navbar-widget">
           <CartWidget />
