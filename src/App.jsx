@@ -8,6 +8,7 @@ import Home from "./components/Home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Contact from "./components/Contact/Contact";
 import NotFound from "./components/NotFound/NotFound";
+import Cart from "./components/Cart/Cart";
 
 const App = () => {
   const headerData = {
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/categories/:id" element={<ItemListContainer />} />
           <Route path="/products/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
           <Route path='*' element={ <NotFound />} />
         </Routes>

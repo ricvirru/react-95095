@@ -1,9 +1,12 @@
 import Contador from "../Contador/Contador"
 import "./ItemDetail.css"
+import { useCart } from "../../context/CartContext";
 
 const ItemDetail = ({ id, name, price, image, stock }) => {
+  const { addItem } = useCart();
+
   const onAddToCart = (cantidad) => {
-    console.log(`Agregaste ${cantidad} productos al carrito`);
+    addItem({ id, name, price, image, stock }, cantidad);
   }
   return (
     <div className="contenedorItem">
