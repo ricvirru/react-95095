@@ -1,0 +1,32 @@
+.imgCarrito {
+    width: 50px;
+}
+
+.cart-widget-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cart-widget {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #667eea;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 4px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

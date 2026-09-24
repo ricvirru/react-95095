@@ -1,0 +1,112 @@
+.cart-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cart-title {
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.cart-empty-message {
+    text-align: center;
+    color: #a0aec0;
+    font-size: 1.1rem;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #f7fafc;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 0.25rem;
+}
+
+.cart-item-info {
+    flex: 1;
+    color: #2d3748;
+}
+
+.cart-item-info h3 {
+    margin: 0 0 0.25rem;
+}
+
+.cart-item-info p {
+    margin: 0.15rem 0;
+    color: #4a5568;
+}
+
+.cart-item-remove {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cart-item-remove:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+}
+
+.cart-summary {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid #e2e8f0;
+    text-align: center;
+}
+
+.cart-summary-row {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin: 0.25rem 0;
+}
+
+.cart-summary-total {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.cart-clear {
+    background-color: #667eea;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cart-clear:hover {
+    background-color: #5a6fd6;
+    transform: translateY(-1px);
+}
