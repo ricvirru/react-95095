@@ -7,3 +7,27 @@
 img {
     width: 35vw;
 }
+
+.item-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #2ecc71;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.9rem 1.4rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: item-toast-in 0.3s ease;
+}
+
+@keyframes item-toast-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
