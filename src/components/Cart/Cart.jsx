@@ -20,6 +20,16 @@ const Cart = () => {
     e.preventDefault();
     setError("");
 
+    if (
+      !consumer.name.trim() ||
+      !consumer.email.trim() ||
+      !consumer.confirmEmail.trim() ||
+      !consumer.phone.trim()
+    ) {
+      setError("Completa todos los campos.");
+      return;
+    }
+
     if (consumer.email !== consumer.confirmEmail) {
       setError("El email y su confirmacion no coinciden.");
       return;

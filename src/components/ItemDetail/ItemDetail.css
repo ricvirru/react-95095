@@ -31,3 +31,38 @@ img {
         transform: translateY(0);
     }
 }
+
+.item-added {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+}
+
+.item-added-message {
+    margin: 0;
+    color: #166534;
+    font-weight: 600;
+}
+
+.item-added-btn {
+    background-color: #2ecc71;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.item-added-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-1px);
+}

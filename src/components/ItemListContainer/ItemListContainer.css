@@ -1,0 +1,65 @@
+.buscador {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.buscador-badge {
+    background-color: #667eea;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.buscador-input {
+    flex: 1;
+    min-width: 180px;
+    padding: 0.6rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #2d3748;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buscador-input::placeholder {
+    color: #a0aec0;
+}
+
+.buscador-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+}
+
+.buscador-btn {
+    background-color: #667eea;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buscador-btn:hover {
+    background-color: #5a6fd6;
+    transform: translateY(-1px);
+}
+
+.buscador-btn:active {
+    transform: translateY(0);
+}
