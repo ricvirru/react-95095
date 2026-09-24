@@ -1,0 +1,111 @@
+.contador {
+    max-width: 340px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contador-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.contador-cantidad {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #2d3748;
+    min-width: 60px;
+    padding: 0.25rem 0;
+    border-bottom: 3px solid #667eea;
+}
+
+.contador-stock {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #667eea;
+    background-color: #edf2f7;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.contador-botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.contador-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.contador-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.contador-btn:active {
+    transform: translateY(0);
+}
+
+.contador-btn-restar {
+    background-color: #e74c3c;
+}
+
+.contador-btn-restar:not(:disabled):hover {
+    background-color: #c0392b;
+}
+
+.contador-btn-sumar {
+    background-color: #2ecc71;
+}
+
+.contador-btn-sumar:not(:disabled):hover {
+    background-color: #27ae60;
+}
+
+.contador-btn:disabled {
+    background-color: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.contador-agregar {
+    background-color: #667eea;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 0.8rem 1.4rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.contador-agregar:not(:disabled):hover {
+    background-color: #5a6fd6;
+    transform: translateY(-1px);
+}
+
+.contador-agregar:disabled {
+    background-color: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+}

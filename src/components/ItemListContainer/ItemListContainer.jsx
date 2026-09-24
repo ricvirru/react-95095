@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
-import { getProducts } from "../../asyncmock"
-import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom";
+import ItemList from "../ItemList/ItemList"
+import { getProducts } from "../../firebase/services"
+import Loading from "../Loading/Loading"
 
 const ItemListContainer = () => {
 
   const [productos, setProductos] = useState([]);
-  const { id : categoryId }  = useParams();
+  const [loading, setLoading] = useState(true);
+  const { id: categoryId } = useParams();
   const [filtroProducto, setFiltroProducto] = useState("");
   const handleOnChange = (e) => {
     setFiltroProducto(e.target.value);
@@ -21,10 +23,10 @@ const ItemListContainer = () => {
     getProducts(Number(categoryId))
       .then(respuesta => {
         setProductos(respuesta)
-        console.log('productos by category: ', respuesta);
       })
       .catch(error => console.log(error))
-    
+      .finally(() => setLoading(false))
+
   }, [categoryId]);
 
   return (
@@ -37,8 +39,10 @@ const ItemListContainer = () => {
         <input onChange={handleOnChange} type="text" placeholder="Buscar producto..." />
         <button onClick={handleSearch}>Buscar</button>
       </div>
-      
-      <ItemList productos={productos}/>
+
+      {loading
+        ? <Loading texto="Cargando productos..." />
+        : <ItemList productos={productos} />}
     </>
   )
 }
