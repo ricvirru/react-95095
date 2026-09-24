@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList"
 import { getProducts } from "../../firebase/services"
 import Loading from "../Loading/Loading"
+import "./ItemListContainer.css"
 
 const ItemListContainer = () => {
 
@@ -32,12 +33,12 @@ const ItemListContainer = () => {
   return (
     <>
       <h2 style={{ textAlign: "center" }}>Mis Productos</h2>
-      <div>
-        <span>
+      <div className="buscador">
+        <span className="buscador-badge">
           Mostrando productos
         </span>
-        <input onChange={handleOnChange} type="text" placeholder="Buscar producto..." />
-        <button onClick={handleSearch}>Buscar</button>
+        <input className="buscador-input" onChange={handleOnChange} type="text" placeholder="Buscar producto..." />
+        <button className="buscador-btn" onClick={handleSearch}>Buscar</button>
       </div>
 
       {loading

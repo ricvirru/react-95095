@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount"
 import "./ItemDetail.css"
 import { useCart } from "../../context/CartContext";
@@ -11,7 +12,6 @@ const ItemDetail = ({ id, name, description, price, image, stock }) => {
   const onAddToCart = (cantidad) => {
     addItem({ id, name, description, price, image, stock }, cantidad);
     setMensaje(`Se agregaron ${cantidad} producto${cantidad === 1 ? "" : "s"} al carrito.`);
-    setTimeout(() => setMensaje(""), 3000);
   }
   return (
     <div className="contenedorItem">
@@ -20,11 +20,16 @@ const ItemDetail = ({ id, name, description, price, image, stock }) => {
         <h3>Stock disponible: {stock}</h3>
         <h3>ID: {id}</h3>
         <img src={resolveProductImage(image, name)} alt={name} />
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium possimus exercitationem aliquam, aliquid libero deleniti perspiciatis dignissimos cumque illo omnis? Et doloremque alias doloribus est dolor, saepe natus molestiae? Ut.</p>
+      <h3>Descripcion: {description}</h3>
       <div>
         <ItemCount initialValue={1} stock={stock} onAddToCart={onAddToCart} />
       </div>
-      {mensaje && <div className="item-toast">{mensaje}</div>}
+      {mensaje && (
+        <div className="item-added">
+          <p className="item-added-message">{mensaje}</p>
+          <Link to="/cart" className="item-added-btn">Ir al carrito</Link>
+        </div>
+      )}
     </div>
   )
 }

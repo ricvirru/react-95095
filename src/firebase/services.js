@@ -3,7 +3,8 @@ import {
   getDocs,
   getDoc,
   doc,
-  addDoc,
+  runTransaction,
+  increment,
   Timestamp,
 } from "firebase/firestore";
 import { db } from "./config";
@@ -47,9 +48,31 @@ export const getProductById = async (id) => {
 };
 
 export const createOrder = async (order) => {
-  const orderRef = await addDoc(ordersCollection, {
-    ...order,
-    date: Timestamp.fromDate(new Date()),
+  const orderRef = doc(ordersCollection);
+
+  await runTransaction(db, async (transaction) => {
+    for (const item of order.products) {
+      const productRef = doc(db, "products", item.id);
+      const snapshot = await transaction.get(productRef);
+
+      if (!snapshot.exists()) {
+        throw new Error(`El producto "${item.description}" no existe en la tienda.`);
+      }
+
+      const stockActual = snapshot.data().stock ?? 0;
+
+      if (stockActual < item.quantity) {
+        throw new Error(`Stock insuficiente para "${item.description}". Quedan ${stockActual}.`);
+      }
+
+      transaction.update(productRef, { stock: increment(-item.quantity) });
+    }
+
+    transaction.set(orderRef, {
+      ...order,
+      date: Timestamp.fromDate(new Date()),
+    });
   });
+
   return orderRef.id;
 };
